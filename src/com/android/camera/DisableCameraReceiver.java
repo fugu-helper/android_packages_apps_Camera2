@@ -42,13 +42,6 @@ public class DisableCameraReceiver extends BroadcastReceiver {
             ? hasBackCamera()
             : hasCamera();
 
-        if (!needCameraActivity) {
-            Log.i(TAG, "disable all camera activities");
-            for (int i = 0; i < ACTIVITIES.length; i++) {
-                disableComponent(context, ACTIVITIES[i]);
-            }
-        }
-
         // Disable this receiver so it won't run again.
         disableComponent(context, "com.android.camera.DisableCameraReceiver");
     }
